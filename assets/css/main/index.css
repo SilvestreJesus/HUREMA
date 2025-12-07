@@ -20,7 +20,7 @@ a {
     position: fixed;
     width: 130dvw;
     height: 130dvh;
-    background-image: url("/assets/img/index-bg.webp");
+    background-image: url("/assets/img/Fondo.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -34,7 +34,6 @@ section.dato {
     border-radius: 20px;
     min-height: fit-content;
     width: 85%;
-    max-width: 90%;
 }
 
 section.dato .iconos {
@@ -60,7 +59,7 @@ section.dato .iconos span:nth-child(3) {
 }
 
 h1.verdefast {
-    font-size: 48px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -109,9 +108,7 @@ article.landing-container .botones {
 
     h1.verdefast {
         font-size: 72px;
-        width: 12ch;
-        text-align: left;
-        text-wrap: pretty;
+        text-align: center;
     }
 
     article.landing-container {
@@ -123,7 +120,8 @@ article.landing-container .botones {
     }
 
     section.dato {
-        width: 25vw;
+        width: 65vw;
+        text-align: center;
         max-width: inherit;
     }
 }
