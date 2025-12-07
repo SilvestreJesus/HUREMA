@@ -13,7 +13,7 @@
             </section>
             <p class="pruebalo-ya">¿Tipo de Discapacidad?</p>
             <div class="botones">
-                <a href="/view/form/login.php" class="boton">Ciego</a>
+                <button id="btnCiego" class="boton" type="button">Ciego</button>
                 <button id="btnSordo" class="boton-secundario" type="button">Sordo</button>
             </div>
         </div>
@@ -34,14 +34,31 @@
         </div>
     </dialog>
 
+    <dialog id="modalCiego" class="modal-overlay">
+        <div class="modal-wrapper">
+            <button id="closeModalCiego" class="btn-close" type="button">
+                <i class="ph ph-x"></i>
+            </button>
+            <div class="modal-content-text">
+                <h1>Bienvenido a <span class="morado">HUREMA</span></h1>
+                <audio id="audioCiego">
+                    <source src="/assets/audios/ciego.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audios.
+                </audio>
+            </div>
+        </div>
+    </dialog>
+
     <script>
+        // Modal Sordo Logic
         const btnSordo = document.getElementById('btnSordo');
         const modalSordo = document.getElementById('modalSordo');
-        const closeModal = document.getElementById('closeModal');
+        const closeModalSordo = document.getElementById('closeModal');
         const video = modalSordo.querySelector('video');
 
         btnSordo.addEventListener('click', () => {
             modalSordo.showModal();
+            video.play();
         });
 
         const closeVideo = () => {
@@ -50,11 +67,36 @@
             video.currentTime = 0;
         };
 
-        closeModal.addEventListener('click', closeVideo);
+        closeModalSordo.addEventListener('click', closeVideo);
 
         modalSordo.addEventListener('click', (e) => {
             if (e.target === modalSordo) {
                 closeVideo();
+            }
+        });
+
+        // Modal Ciego Logic
+        const btnCiego = document.getElementById('btnCiego');
+        const modalCiego = document.getElementById('modalCiego');
+        const closeModalCiego = document.getElementById('closeModalCiego');
+        const audioCiego = document.getElementById('audioCiego');
+
+        btnCiego.addEventListener('click', () => {
+            modalCiego.showModal();
+            audioCiego.play().catch(e => console.log('Audio playback failed:', e));
+        });
+
+        const closeAudio = () => {
+            modalCiego.close();
+            audioCiego.pause();
+            audioCiego.currentTime = 0;
+        };
+
+        closeModalCiego.addEventListener('click', closeAudio);
+
+        modalCiego.addEventListener('click', (e) => {
+            if (e.target === modalCiego) {
+                closeAudio();
             }
         });
     </script>

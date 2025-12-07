@@ -8,6 +8,10 @@ body {
     color: white;
     min-height: 100vh;
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 a {
@@ -59,7 +63,7 @@ section.dato .iconos span:nth-child(3) {
 }
 
 h1.verdefast {
-    font-size: 18px;
+    font-size: 12vw;
     text-align: center;
 }
 
@@ -96,6 +100,7 @@ article.landing-container .botones {
 }
 
 @media (640 <= width <= 960px) {
+
 }
 
 @media (960px <= width) {
@@ -201,4 +206,28 @@ article.landing-container .botones {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+.morado {
+    color: #9d4edd;
+    text-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+.modal-content-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.modal-content-text h1 {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+/* Ensure modal looks good on different screens */
+@media (max-width: 600px) {
+    .modal-content-text h1 {
+        font-size: 32px;
+    }
 }
